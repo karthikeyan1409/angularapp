@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">
+          <h5 align="center">Angular Application</h5>
+      </div>
+      <div class="card-body">
+          <p>
+              This Angular app will invoke an ASP.NET Core REST API running inside a Docker container
+          </p>
+          <button (click)="InvokeGet()" class="btn btn-primary">Invoke GET</button>
+          &nbsp;&nbsp;&nbsp;
+          <button (click)="InvokePost()" class="btn btn-primary">Invoke POST</button>
+          &nbsp;&nbsp;&nbsp;
+          <button (click)="InvokePut()" class="btn btn-primary">Invoke PUT</button>
+          &nbsp;&nbsp;&nbsp;
+          <button (click)="InvokeDelete()" class="btn btn-primary">Invoke DELETE</button>
+          <hr/>
+          <h6>
+            {{ result }}
+          </h6>
+      </div>
+    </div>
+  </div>
+</div>
