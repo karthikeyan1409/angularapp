@@ -9,7 +9,8 @@ import { DataAccessService } from './data-access.service';
 export class AppComponent {
   title = 'angularapp';
 
-  result: string = "RESULT OF API CALL GOES HERE";
+  result: any;
+ 
 
   constructor(private svc: DataAccessService)
   {
@@ -18,19 +19,35 @@ export class AppComponent {
 
   InvokeGet()
   {
-    console.log(window.location.href);
-      //this.svc.Get().subscribe(result => this.result = result);
+    alert("Executing on browser. Button click fired");
+      this.svc.Get().subscribe(result => 
+        {
+          this.result = result;
+          console.log(result);
+        });
   }
   InvokePost()
   {
-    this.svc.Post().subscribe(result => this.result = result);
+    this.svc.Post().subscribe(result => 
+      {
+        this.result = result
+        console.log(result);
+      });
   }
   InvokePut()
   {
-    this.svc.Put().subscribe(result => this.result = result);
+    this.svc.Put().subscribe(result => 
+      {
+        this.result = result
+        console.log(result);
+      });
   }
   InvokeDelete()
   {
-    this.svc.Delete().subscribe(result => this.result = result);
+    this.svc.Delete().subscribe(result => 
+      {
+        this.result = result
+        console.log(result);
+      });
   }
 }

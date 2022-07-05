@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -6,23 +6,31 @@ import { Observable } from 'rxjs';
 })
 export class DataAccessService {
 
+  restapiport: string = "9999";
+  controllername: string = "Demo";
+  url: string = "http://" +window.location.hostname +":" +this.restapiport +"/" +this.controllername;
+  //url: string = "http://localhost:5295/Demo" 
+ 
   constructor(private http: HttpClient) { }
 
-  public Get(): Observable<string>
+  public Get(): Observable<any>
   {
-      return this.http.get<string>("");
+      console.log("GET CALLED");
+      return this.http.get<any>(this.url);
   }
-  public Post(): Observable<string>
+  public Post(): Observable<any>
   {
-    return this.http.post<string>("", null);
+    console.log("POST CALLED");
+    return this.http.post<any>(this.url, {});
   }
-  public Put(): Observable<string>
+  public Put(): Observable<any>
   {
-    return this.http.put<string>("", null);
+    console.log("PUT CALLED");
+    return this.http.put<any>(this.url, {});
   }
-  public Delete(): Observable<string>
+  public Delete(): Observable<any>
   {
-    return this.http.delete<string>("");
+    console.log("DELETE CALLED");
+    return this.http.delete<any>(this.url);
   }
-
 }
